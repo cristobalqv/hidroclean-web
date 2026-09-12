@@ -1,0 +1,1840 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HidroClean Chile | Hidrolavado Residencial a Alta Presión</title>
+    
+    <style>
+        /* ==========================================
+           1. DECLARACIÓN DE FUENTES
+           ========================================== */
+        @font-face {
+            font-family: 'Futura-Bold';
+            src: url('Futura-Bold.otf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Lato-Regular';
+            src: url('Lato-Regular.ttf') format('truetype');
+        }
+
+
+	/* DESPLAZAMIENTO SUAVE Y MARGEN PARA MENÚ FIJO */
+	html {
+    		scroll-behavior: smooth;
+	}
+
+	section[id] {
+    scroll-margin-top: calc(var(--header-height, 105px) + 10px);
+}
+
+        /* ==========================================
+           2. RESET Y BASES
+           ========================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        img, iframe, video, svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        h1 {
+            font-family: 'Futura-Bold', sans-serif;
+        }
+
+        body, p, a, input, select, textarea, button, h2, h3, h4 {
+            font-family: 'Lato-Regular', sans-serif;
+        }
+
+        body {
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+	html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+        .container {
+            max-width: 1200px;
+	    width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ==========================================
+           3. HEADER Y NAVEGACIÓN
+           ========================================== */
+        .header {
+            position: fixed;
+   	    top: 0;
+	    left: 0;
+	    right: 0;
+	    z-index: 1000;
+        }
+
+	body {
+    padding-top: var(--header-height, 105px);
+}
+
+        .top-bar {
+            background-color: #0d3b66;
+            color: #fff;
+            font-size: 0.85rem;
+            padding: 6px 0;
+        }
+
+        .top-bar-content {
+            text-align: right;
+        }
+
+        .top-bar a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-bar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo img {
+            max-height: 50px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #0d3b66;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .nav-menu a.active, .nav-menu a:hover {
+            color: #34a8dd;
+        }
+
+        /* ==========================================
+           4. SECCIÓN HERO (PORTADA)
+           ========================================== */
+        .hero, .hero-section {
+            background: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)), url('lavado-1.png') no-repeat center center/cover;
+            padding: 60px 0;
+            min-height: 550px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+	    min-width: 0;
+            color: #0d3b66;
+            text-shadow: none;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(1.8rem, 5vw + 1rem, 3rem);
+            font-weight: 900;
+            color: #0d3b66;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+            background: transparent;
+            overflow-wrap: anywhere;
+        }
+
+        .hero-text h2 {
+            font-size: clamp(1.15rem, 2vw + 0.8rem, 1.8rem);
+            margin-bottom: 15px;
+            color: #0d3b66;
+            font-weight: 600;
+            overflow-wrap: anywhere;
+        }
+
+        .hero-text p {
+            font-size: clamp(0.95rem, 1vw + 0.75rem, 1.1rem);
+            margin-bottom: 25px;
+            max-width: 500px;
+            color: #222222;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* BOTONES */
+        .btn {
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                        box-shadow 0.3s ease, 
+                        background-color 0.3s ease;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.35);
+            transform: rotate(30deg);
+            transition: left 0.6s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            opacity: 1;
+        }
+
+        .btn:hover::after {
+            left: 140%;
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-green {
+            background-color: #fb8500;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(251, 133, 0, 0.3);
+        }
+
+        .btn-green:hover {
+            background-color: #e07600;
+            box-shadow: 0 8px 20px rgba(251, 133, 0, 0.45);
+        }
+
+        .btn-blue {
+            background-color: #00bfee;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 191, 238, 0.3);
+        }
+
+        .btn-blue:hover {
+            background-color: #00a8d1;
+            box-shadow: 0 8px 20px rgba(0, 191, 238, 0.45);
+        }
+
+        .btn-submit {
+            background-color: #34a8dd;
+            color: #fff;
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(52, 168, 221, 0.3);
+        }
+
+        .btn-submit:hover {
+            background-color: #2893c4;
+            box-shadow: 0 8px 20px rgba(52, 168, 221, 0.45);
+        }
+
+        /* FORMULARIO FLOTANTE */
+        .hero-form-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 25px;
+            border-radius: 12px;
+            width: min(380px, 100%);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-top: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 30px -5px rgba(13, 59, 102, 0.25), 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+        }
+
+        .hero-form-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px -5px rgba(13, 59, 102, 0.35), 0 25px 30px -5px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-form-card h3 {
+            color: #0d3b66;
+            font-size: 1.1rem;
+            text-align: center;
+            font-weight: 800;
+        }
+
+        .form-subtext {
+            font-size: 0.75rem;
+            color: #666;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 3px;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        textarea {
+            resize: vertical;
+            max-width: 100%;
+        }
+
+
+	/* MENSAJES DE ERROR DEL FORMULARIO */
+.mensaje-error {
+    display: block;
+    color: #c62828;
+    font-size: 0.72rem;
+    margin-top: 4px;
+    line-height: 1.3;
+}
+
+/* RESALTAR CAMPO CON ERROR */
+.campo-error {
+    border-color: #c62828 !important;
+    outline: none;
+}
+
+
+        /* ==========================================
+           5. SECCIÓN NUESTRA EMPRESA
+           ========================================== */
+        .about-section {
+            padding: 80px 0;
+            background-color: #ffffff;
+        }
+
+        .about-grid {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+	    min-width: 0;
+        }
+
+        .about-text h2 {
+            font-size: 2.2rem;
+            color: #0d3b66;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .about-text h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #34a8dd;
+            margin-top: 10px;
+            border-radius: 2px;
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #555555;
+            margin-bottom: 20px;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background-color: #f8fbfe;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #00bfee;
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                        box-shadow 0.3s ease, 
+                        border-left-color 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-left-color: #fb8500;
+            box-shadow: 0 8px 20px rgba(13, 59, 102, 0.12);
+        }
+
+        .feature-card h4 {
+            color: #0d3b66;
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0;
+            line-height: 1.4;
+        }
+
+        .about-image {
+            flex: 1;
+	    min-width: 0;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 30px rgba(13, 59, 102, 0.2);
+        }
+
+        /* ==========================================
+           6. SECCIÓN SERVICIOS
+           ========================================== */
+        .services-section {
+            padding: 80px 0;
+            background-color: #f4f7f9;
+        }
+
+        .services-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+        }
+
+        .services-header h2 {
+            font-size: 2.2rem;
+            color: #0d3b66;
+            margin-bottom: 10px;
+        }
+
+        .services-header p {
+            color: #666;
+            font-size: 1.05rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .service-img {
+            height: 180px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .service-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .service-content h3 {
+            color: #0d3b66;
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .service-content p {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .service-btn {
+            text-align: center;
+            background-color: #0d3b66;
+            color: #ffffff;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: background-color 0.2s ease;
+        }
+
+        .service-btn:hover {
+            background-color: #34a8dd;
+        }
+
+        /* ==========================================
+           7. SECCIÓN CONTACTO
+           ========================================== */
+        .contact-section {
+            padding: 80px 0;
+            background-color: #ffffff;
+        }
+
+        .contact-grid {
+            display: flex;
+            gap: 40px;
+        }
+
+        .contact-info {
+            flex: 1;
+	    min-width: 0;
+        }
+
+        .contact-info h2 {
+            font-size: 2.2rem;
+            color: #0d3b66;
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            color: #555;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background-color: #f0f7fc;
+            color: #00bfee;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .contact-text h4 {
+            color: #0d3b66;
+            font-size: 1rem;
+        }
+
+        .contact-text a, .contact-text p {
+            color: #555;
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        .contact-map {
+            flex: 1;
+            min-height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* ==========================================
+           8. FOOTER UNIFICADO (DESKTOP)
+           ========================================== */
+        .footer {
+            background-color: #0d3b66;
+            color: #ffffff;
+            padding: 40px 0 20px 0;
+            width: 100%;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 30px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .footer-brand {
+            text-align: left;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Futura-Bold', sans-serif;
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 5px;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .footer-brand p {
+            font-family: 'Lato-Regular', sans-serif;
+            color: #b0c4de;
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-links a {
+            font-family: 'Lato-Regular', sans-serif;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #00bfee;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #b0c4de;
+        }
+
+        .footer-bottom p {
+            font-family: 'Lato-Regular', sans-serif;
+            margin: 0;
+        }
+
+        /* ==========================================
+           9. WHATSAPP FLOTANTE
+           ========================================== */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #20ba5a;
+        }
+
+        .whatsapp-icon {
+            width: 35px;
+            height: 35px;
+            fill: #ffffff;
+        }
+
+        /* ==========================================
+           10. MEDIA QUERIES (MÓVIL / TABLET)
+           ========================================== */
+
+
+
+/* ==========================================
+   11. CORRECCIÓN DE TÍTULOS Y CONTRASTE (SERVICIOS Y FAQ)
+   ========================================== */
+
+/* Unificación visual de títulos */
+.services-header h2,
+.faq-section .section-title {
+    color: #0d3b66 !important;
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Unificación visual de subtítulos */
+.services-header p,
+.faq-section .section-subtitle {
+    color: #666666 !important;
+    font-size: 1.05rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Fondo gris para Servicios */
+.services-section {
+    background-color: #f4f7f9;
+    padding: 80px 0;
+}
+
+/* Fondo blanco para FAQ (genera contraste) */
+.faq-section {
+    background-color: #ffffff;
+    padding: 80px 0;
+    border-top: 1px solid #eef2f5;
+}
+
+
+
+/* ==========================================
+   CORRECCIÓN FAQ Y FONDOS DE SECCIONES
+   ========================================== */
+
+/* 1. ESTILOS DEL ACORDEÓN DE FAQ */
+.faq-accordion {
+    max-width: 800px;
+    margin: 30px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    background: #ffffff;
+    border: 1px solid #e0e6ed;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(13, 59, 102, 0.05);
+    transition: border-color 0.3s ease;
+}
+
+.faq-item[open] {
+    border-color: #fb8500;
+}
+
+.faq-question {
+    padding: 18px 22px;
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: #0d3b66;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    user-select: none;
+}
+
+.faq-question::-webkit-details-marker {
+    display: none;
+}
+
+.faq-question:hover {
+    background-color: #f8fbfe;
+}
+
+.faq-icon {
+    font-size: 1.4rem;
+    color: #fb8500;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+}
+
+.faq-item[open] .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    padding: 0 22px 20px 22px;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    border-top: 1px solid #f0f0f0;
+    margin-top: 5px;
+    padding-top: 15px;
+}
+
+/* 2. UNIFICACIÓN DE TÍTULOS */
+.services-header h2,
+.section-title {
+    color: #0d3b66 !important;
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.services-header p,
+.section-subtitle {
+    color: #666666 !important;
+    font-size: 1.05rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* 3. ALTERNANCIA DE FONDOS */
+.services-section {
+    background-color: #f4f7f9;
+    padding: 80px 0;
+}
+
+.faq-section {
+    background-color: #ffffff;
+    padding: 80px 0;
+    border-top: 1px solid #eef2f5;
+}
+
+.contact-section {
+    background-color: #f4f7f9; /* Mismo fondo gris/azul claro que Servicios */
+    padding: 80px 0;
+}
+
+
+/* ==========================================
+   CTA INTERMEDIO GALERÍA Y MICRO-GARANTÍAS
+   ========================================== */
+
+/* Banner CTA Galería */
+.gallery-cta-banner {
+    background: linear-gradient(135deg, #0d3b66 0%, #001f3f 100%);
+    color: #ffffff;
+    padding: 40px 20px;
+    border-radius: 12px;
+    margin: 40px 0;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(13, 59, 102, 0.15);
+}
+
+.gallery-cta-content h3 {
+    font-size: 1.8rem;
+    color: #ffffff !important;
+    margin-bottom: 10px;
+}
+
+.gallery-cta-content p {
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    margin-bottom: 25px;
+}
+
+.cta-banner-btn {
+    display: inline-block;
+    background-color: #fb8500;
+    color: #ffffff !important;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.05rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-banner-btn:hover {
+    background-color: #e07600;
+    transform: translateY(-2px);
+}
+
+/* Bloque de Micro-garantías */
+.trust-guarantees-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.guarantee-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e0e6ed;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.guarantee-icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.guarantee-text h4 {
+    margin: 0 0 5px 0;
+    color: #0d3b66;
+    font-size: 1.05rem;
+}
+
+.guarantee-text p {
+    margin: 0;
+    color: #666666;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+
+
+
+
+
+/* ==========================================
+   RESPONSIVE DEFINITIVO
+   ========================================== */
+
+/* TABLETS Y MÓVILES */
+@media (max-width: 768px) {
+
+    /* ---------- BARRA SUPERIOR ---------- */
+
+    .top-bar-content {
+        text-align: center;
+        padding: 0 15px;
+        font-size: 0.8rem;
+    }
+
+    .top-bar-content span {
+        display: block;
+        overflow-wrap: anywhere;
+    }
+
+
+    /* ---------- NAVEGACIÓN ---------- */
+
+    .nav-content {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 10px;
+        width: 100%;
+    }
+
+    .logo {
+        max-width: 100%;
+    }
+
+    .logo img {
+        max-width: 100%;
+        height: auto;
+        max-height: 50px;
+    }
+
+    .nav-menu {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 9px 14px;
+        margin: 0;
+    }
+
+    .nav-menu li {
+        flex: 0 0 auto;
+        text-align: center;
+    }
+
+    .nav-menu a {
+        font-size: 0.82rem;
+    }
+
+
+    /* ---------- HERO ---------- */
+
+
+.hero,
+.hero-section {
+    width: 100%;
+    min-height: auto;
+    padding: 85px 0 40px 0;
+    overflow: visible;
+}
+
+.hero-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 35px;
+}
+
+.hero-text {
+    width: 100%;
+    min-width: 0;
+    text-align: center;
+}
+
+.hero-text h1 {
+    line-height: 1.1;
+    margin-bottom: 12px;
+}
+
+.hero-text h2 {
+    line-height: 1.25;
+    margin-bottom: 15px;
+}
+
+.hero-text p {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 25px auto;
+    line-height: 1.5;
+}
+
+.hero-buttons {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.hero-buttons .btn {
+    flex: 0 1 auto;
+}
+
+
+    /* ---------- FORMULARIO ---------- */
+
+    .hero-form-card {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding: 20px 15px;
+    }
+
+    .hero-form-card input,
+    .hero-form-card select,
+    .hero-form-card textarea {
+        max-width: 100%;
+    }
+
+
+    /* ---------- NUESTRA EMPRESA ---------- */
+
+    .about-grid {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .about-text {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .about-image {
+        width: 100%;
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .about-image img {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+    }
+
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* ---------- SERVICIOS ---------- */
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* ---------- FAQ ---------- */
+
+    .faq-accordion {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .faq-question {
+        gap: 10px;
+    }
+
+    .faq-question span:first-child {
+        min-width: 0;
+        overflow-wrap: break-word;
+    }
+
+
+    /* ---------- CONTACTO ---------- */
+
+    .contact-grid {
+        flex-direction: column;
+        width: 100%;
+        gap: 30px;
+    }
+
+    .contact-info {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .contact-map {
+        width: 100%;
+        height: 280px;
+    }
+
+
+    /* ---------- GARANTÍAS ---------- */
+
+    .trust-guarantees-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 25px;
+    }
+
+    .guarantee-card {
+        min-width: 0;
+    }
+
+
+    /* ---------- FOOTER ---------- */
+
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .footer-brand {
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 15px;
+    }
+
+
+    /* ---------- WHATSAPP ---------- */
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .whatsapp-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+
+/* ==========================================
+   TELÉFONOS ESTRECHOS
+   ========================================== */
+
+@media (max-width: 480px) {
+
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .nav-content {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .nav-menu {
+        gap: 8px 11px;
+    }
+
+    .nav-menu a {
+        font-size: 0.76rem;
+    }
+
+    .hero-text p {
+        line-height: 1.45;
+    }
+
+    .hero-buttons {
+        gap: 10px;
+    }
+
+    .hero-buttons .btn {
+        padding: 11px 16px;
+        font-size: 0.82rem;
+    }
+
+    .hero-form-card {
+        padding: 18px 13px;
+    }
+
+    .faq-question {
+        padding: 16px;
+        font-size: 0.95rem;
+    }
+
+    .faq-answer {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .guarantee-card {
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .guarantee-icon {
+        font-size: 1.6rem;
+    }
+
+    .guarantee-text h4 {
+        font-size: 0.95rem;
+    }
+
+    .guarantee-text p {
+        font-size: 0.85rem;
+    }
+}
+
+
+    </style>
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+
+    <!-- 1. ENCABEZADO Y NAVEGACIÓN -->
+    <header class="header">
+        <div class="top-bar">
+            <div class="container top-bar-content">
+                <span>Ventas y Cotizaciones: <a href="tel:+56912345678">+56 9 1234 5678</a></span>
+            </div>
+        </div>
+        
+        <nav class="nav-bar">
+            <div class="container nav-content">
+                <a href="#" class="logo">
+                    <img src="logo-1.png" alt="HidroClean Chile Logo">
+                </a>
+                <ul class="nav-menu">
+    <li><a href="index.html#inicio">Inicio</a></li>
+    <li><a href="index.html#empresa">Nuestra Empresa</a></li>
+    <li><a href="index.html#servicios">Servicios</a></li>
+    <li><a href="especificaciones.html">Ficha Técnica</a></li>
+    <li><a href="galeria.html">Trabajos Realizados</a></li>
+    <li><a href="index.html#contacto">Contacto</a></li>
+</ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 2. SECCIÓN HERO (PORTADA CON FORMULARIO) -->
+    <section id="inicio" class="hero-section">
+        <div class="container hero-container">
+            
+            <!-- Mensaje Principal a la Izquierda -->
+            <div class="hero-text">
+                <h1>HIDROCLEAN CHILE</h1>
+                <h2>Hidrolavado y limpieza de superficies a alta presión</h2>
+                <p>Especialistas en patios, terrazas, pastelones y entradas de autos para casas y condominios.</p>
+                <div class="hero-buttons">
+                    <a href="tel:+56912345678" class="btn btn-green">📞 LLAMAR</a>
+                    <a href="#servicios" class="btn btn-blue">NUESTROS SERVICIOS</a>
+                </div>
+            </div>
+
+            <!-- Formulario Flotante a la Derecha -->
+            <div class="hero-form-card">
+                <h3>COTIZACIÓN PARA TU HOGAR</h3>
+                <p class="form-subtext">Formulario exclusivo para casas, condominios y residencias.</p>
+                
+
+
+
+
+
+                <form action="#" method="POST">
+    <div class="form-group">
+        <label for="nombre">Nombre *</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre de contacto" required>
+        <small id="error-nombre" class="mensaje-error"></small>
+    </div>
+
+    <div class="form-group">
+        <label for="correo">Correo *</label>
+        <input type="email" id="correo" name="correo" placeholder="Correo de contacto" required>
+        <small id="error-correo" class="mensaje-error"></small>
+    </div>
+
+    <div class="form-group">
+        <label for="telefono">Teléfono *</label>
+        <input type="tel" id="telefono" name="telefono" placeholder="Teléfono de contacto" required>
+        <small id="error-telefono" class="mensaje-error"></small>
+    </div>
+
+    <div class="form-group">
+        <label for="servicio">Motivo del contacto *</label>
+        <select id="servicio" name="motivo" required>
+            <option value="" disabled selected>Selecciona una opción</option>
+            <option value="terrazas">Limpieza de Terrazas / Patios</option>
+            <option value="pastelones">Limpieza de Pastelones / Adoquines</option>
+            <option value="entradas">Limpieza de Entradas de Auto</option>
+            <option value="muros">Limpieza de Muros / Fachadas</option>
+            <option value="otro">Otro servicio residencial</option>
+        </select>
+        <small id="error-motivo" class="mensaje-error"></small>
+    </div>
+
+    <div class="form-group">
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="3" placeholder="Indique Comuna, tipo de superficie y m² aproximados del servicio."></textarea>
+        <small id="error-mensaje" class="mensaje-error"></small>
+    </div>
+
+    <button type="submit" class="btn btn-submit" id="botonEnviar">
+        SOLICITAR COTIZACIÓN
+    </button>
+</form>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. SECCIÓN NUESTRA EMPRESA -->
+    <section id="empresa" class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                
+                <div class="about-text">
+                    <h2>Sobre nosotros</h2>
+                    <p>
+                        En <strong>HidroClean Chile</strong> nos especializamos en la restauración y limpieza profunda de superficies mediante hidrolavado de alta presión. Nos enfocamos en devolverle el aspecto original a los espacios exteriores de casas, condominios y propiedades residenciales.
+                    </p>
+                    <p>
+                        Contamos con equipos de última tecnología y personal capacitado para remover musgo, grasa, suciedad acumulada y manchas difíciles sin dañar tus pisos o muros.
+                    </p>
+
+                    <div class="about-features">
+                        <div class="feature-card">
+                            <h4>TRANSPARENCIA</h4>
+                            <p>En nuestros precios y procesos.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>EXIGENCIA</h4>
+                            <p>En los detalles técnicos.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>RESPETO TOTAL</h4>
+                            <p>Por la confianza que cada cliente nos entrega para trabajar en su residencia.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-image">
+                    <img src="lavado-1.png" alt="Servicio de Hidrolavado HidroClean Chile">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SECCIÓN NUESTROS SERVICIOS -->
+    <section id="servicios" class="services-section">
+        <div class="container">
+            
+            <div class="services-header">
+                <h2>Nuestros Servicios</h2>
+                <p>Soluciones de hidrolavado de alta presión adaptadas a cada necesidad de tu hogar.</p>
+            </div>
+
+            <div class="services-grid">
+                
+                <div class="service-card">
+                    <img src="terraza1.png" alt="Hidrolavado de Terrazas" class="service-img">
+                    <div class="service-content">
+                        <h3>Terrazas y Patios</h3>
+                        <p>Eliminación de musgo, manchas de humedad, grasa de parrillas y suciedad acumulada en cerámica, piedra y madera exterior.</p>
+                        <a href="#inicio" class="service-btn">COTIZAR SERVICIO</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="adoquines.png" alt="Limpieza de Pastelones" class="service-img">
+                    <div class="service-content">
+                        <h3>Pastelones y Adoquines</h3>
+                        <p>Restauración de caminos peatonales y superficies porosas sin desgastar el material ni barrer el fragüe original.</p>
+                        <a href="#inicio" class="service-btn">COTIZAR SERVICIO</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="entrada-auto.png" alt="Entradas de Auto" class="service-img">
+                    <div class="service-content">
+                        <h3>Entradas de Autos</h3>
+                        <p>Remoción profunda de marcas de neumáticos, derrames de aceite, tierra incrustada y barro en hormigón o adoquines.</p>
+                        <a href="#inicio" class="service-btn">COTIZAR SERVICIO</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="muros.png" alt="Limpieza de Muros" class="service-img">
+                    <div class="service-content">
+                        <h3>Muros y Fachadas</h3>
+                        <p>Limpieza a presión controlada en muros perimetrales, ladrillo visto y rejas para devolver la estética limpia a tu fachada.</p>
+                        <a href="#inicio" class="service-btn">COTIZAR SERVICIO</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+<!-- SECCIÓN PREGUNTAS FRECUENTES (FAQ) -->
+<section class="faq-section">
+    <div class="container">
+        <h2 class="section-title">PREGUNTAS FRECUENTES</h2>
+        <p class="section-subtitle">Resuelve tus dudas sobre nuestro servicio de hidrolavado a alta presión.</p>
+
+        <div class="faq-accordion">
+            
+            <details class="faq-item">
+                <summary class="faq-question">
+                    <span>¿Qué requerimientos de agua o energía necesitan en el lugar?</span>
+                    <span class="faq-icon">+</span>
+                </summary>
+                <div class="faq-answer">
+                    <p>Solo necesitamos acceso a una llave de agua estándar (jardín o patio) y un enchufe eléctrico de 220V convencional. Nosotros llevamos todos los conectores, mangueras de alta presión y extensiones necesarias.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question">
+                    <span>¿El hidrolavado a alta presión puede dañar mis pisos o superficies?</span>
+                    <span class="faq-icon">+</span>
+                </summary>
+                <div class="faq-answer">
+                    <p>No. Regulamos la presión (PSI) y seleccionamos boquillas específicas según el tipo de material (piedra pizarra, hormigón, madera, pastelón, etc.). Esto elimina la suciedad, musgo u hongos sin erosionar ni dañar la superficie.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question">
+                    <span>¿Cómo solicito una cotización y cuánto tarda?</span>
+                    <span class="faq-icon">+</span>
+                </summary>
+                <div class="faq-answer">
+                    <p>Es muy rápido. Escríbenos por WhatsApp enviándonos una foto o video corto de la zona a lavar y los metros cuadrados aproximados. Te entregamos un presupuesto estimado en menos de 2 horas.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question">
+                    <span>¿Cuáles son los medios de pago aceptados?</span>
+                    <span class="faq-icon">+</span>
+                </summary>
+                <div class="faq-answer">
+                    <p>Aceptamos transferencia bancaria, efectivo y pago con tarjeta de crédito o débito al finalizar el trabajo y tras tu revisión de conformidad.</p>
+                </div>
+            </details>
+
+        </div>
+    </div>
+</section>
+
+    <!-- 5. SECCIÓN CONTACTO -->
+    <!-- 5. SECCIÓN CONTACTO -->
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                
+                <!-- Columna Izquierda: Datos y Garantías -->
+                <div class="contact-info">
+                    <h2>Contáctanos</h2>
+                    <p>Atendemos requerimientos en el sector nororiente de la Región Metropolitana. Llámanos o escríbenos para coordinar tu evaluación.</p>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-text">
+                            <h4>Teléfono y WhatsApp</h4>
+                            <a href="tel:+56912345678">+56 9 1234 5678</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-text">
+                            <h4>Correo Electrónico</h4>
+                            <a href="mailto:contacto@hidrocleanchile.cl">contacto@hidrocleanchile.cl</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">
+                            <h4>Zona de Cobertura</h4>
+                            <p>Providencia, Ñuñoa, Las Condes, Vitacura, La Reina y Lo Barnechea.</p>
+                        </div>
+                    </div>
+
+                    <!-- BLOQUE DE MICRO-GARANTÍAS (DENTRO DE CONTACT-INFO) -->
+                    <div class="trust-guarantees-grid">
+                        <div class="guarantee-card">
+                            <div class="guarantee-icon">🛡️</div>
+                            <div class="guarantee-text">
+                                <h4>Garantía de Satisfacción</h4>
+                                <p>Pagas al finalizar el trabajo una vez revisado y conforme.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="guarantee-card">
+                            <div class="guarantee-icon">⚡</div>
+                            <div class="guarantee-text">
+                                <h4>Cotización Rápida</h4>
+                                <p>Respuesta en menos de 2 horas vía WhatsApp enviando fotos o m².</p>
+                            </div>
+                        </div>
+                        
+                        <div class="guarantee-card">
+                            <div class="guarantee-icon">🧹</div>
+                            <div class="guarantee-text">
+                                <h4>Cuidado del Entorno</h4>
+                                <p>Protección de plantas, jardines y fachadas adyacentes durante el lavado.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Mapa -->
+                <div class="contact-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d53258.123456789!2d-70.58!3d-33.41!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2scl!4v1700000000000!5m2!1ses!2scl" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>HIDROCLEAN CHILE</h3>
+                    <p>Especialistas en hidrolavado residencial a alta presión.</p>
+                </div>
+                <ul class="footer-links">
+    <li><a href="index.html#inicio">Inicio</a></li>
+    <li><a href="index.html#empresa">Nuestra Empresa</a></li>
+    <li><a href="index.html#servicios">Servicios</a></li>
+    <li><a href="especificaciones.html">Ficha Técnica</a></li>
+    <li><a href="galeria.html">Trabajos Realizados</a></li>
+    <li><a href="index.html#contacto">Contacto</a></li>
+</ul>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 HidroClean Chile. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <a href="https://wa.me/56912345678?text=Hola,%20me%20gustar%C3%ADa%20cotizar%20un%20servicio%20de%20hidrolavado" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contacto por WhatsApp">
+        <svg viewBox="0 0 32 32" class="whatsapp-icon">
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 8.138-2.135c2.35 1.282 5.011 1.958 7.862 1.958 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.35c-2.48 0-4.908-0.662-7.037-1.92l-0.505-0.3-5.232 1.372 1.396-5.19-0.33-0.525c-1.385-2.201-2.117-4.757-2.117-7.387 0-7.625 6.202-13.826 13.826-13.826s13.826 6.202 13.826 13.826-6.202 13.826-13.826 13.826zM22.826 19.341c-0.373-0.187-2.206-1.088-2.548-1.212s-0.591-0.187-0.84 0.187c-0.249 0.373-0.964 1.212-1.182 1.461s-0.435 0.28-0.808 0.093c-0.373-0.187-1.576-0.581-3.002-1.853-1.109-0.989-1.858-2.211-2.076-2.584s-0.023-0.575 0.164-0.761c0.168-0.168 0.373-0.435 0.56-0.653s0.249-0.373 0.373-0.622c0.124-0.249 0.062-0.467-0.031-0.653s-0.84-2.023-1.15-2.769c-0.302-0.728-0.609-0.629-0.84-0.641l-0.715-0.012c-0.249 0-0.653 0.093-0.995 0.467s-1.306 1.275-1.306 3.109 1.337 3.606 1.524 3.855c0.187 0.249 2.631 4.017 6.374 5.634 0.89 0.384 1.585 0.614 2.127 0.786 0.894 0.284 1.708 0.244 2.35 0.148 0.716-0.107 2.206-0.902 2.518-1.773s0.311-1.617 0.218-1.773c-0.093-0.156-0.342-0.249-0.715-0.435z"/>
+        </svg>
+    </a>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const formulario = document.querySelector(".hero-form-card form");
+    const botonEnviar = document.getElementById("botonEnviar");
+    let intervaloPuntos;
+
+
+    // Limpiar el error de un campo cuando el usuario lo modifica
+    document.querySelectorAll(
+        "#nombre, #correo, #telefono, #servicio, #mensaje"
+    ).forEach(function (campo) {
+
+        campo.addEventListener("input", function () {
+
+            const mensajeError = document.getElementById(
+                "error-" + (campo.id === "servicio" ? "motivo" : campo.id)
+            );
+
+            if (mensajeError) {
+                mensajeError.textContent = "";
+            }
+
+            campo.classList.remove("campo-error");
+        });
+
+        // Para el <select>
+        campo.addEventListener("change", function () {
+
+            const mensajeError = document.getElementById(
+                "error-" + (campo.id === "servicio" ? "motivo" : campo.id)
+            );
+
+            if (mensajeError) {
+                mensajeError.textContent = "";
+            }
+
+            campo.classList.remove("campo-error");
+        });
+    });
+
+
+
+
+    formulario.addEventListener("submit", async function (event) {
+
+        event.preventDefault();
+
+        // Limpiar errores anteriores
+        document.querySelectorAll(".mensaje-error").forEach(function (elemento) {
+            elemento.textContent = "";
+        });
+
+        document.querySelectorAll(".campo-error").forEach(function (elemento) {
+            elemento.classList.remove("campo-error");
+        });
+
+        // Evita doble envío
+        botonEnviar.disabled = true;
+
+        // Animación de los puntos suspensivos
+        let puntos = 1;
+
+        intervaloPuntos = setInterval(() => {
+            puntos = puntos === 3 ? 1 : puntos + 1;
+            botonEnviar.textContent = "ENVIANDO" + ".".repeat(puntos);
+        }, 400);
+
+        const datos = {
+            nombre: document.getElementById("nombre").value,
+            correo: document.getElementById("correo").value,
+            telefono: document.getElementById("telefono").value,
+            motivo: document.getElementById("servicio").value,
+            mensaje: document.getElementById("mensaje").value
+        };
+
+        try {
+
+            const respuesta = await fetch("http://127.0.0.1:8000/api/solicitudes/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(datos)
+            });
+
+            const resultado = await respuesta.json();
+
+            if (respuesta.ok) {
+
+    console.log("RESPUESTA OK - INICIANDO ESPERA DE 2 SEGUNDOS");
+
+    // Mantener ENVIANDO... durante 2 segundos
+    await new Promise(function(resolve) {
+        setTimeout(resolve, 2000);
+    });
+
+    console.log("TERMINARON LOS 2 SEGUNDOS");
+
+    // Detener animación
+    clearInterval(intervaloPuntos);
+
+    alert("¡Solicitud enviada correctamente!");
+
+    formulario.reset();
+
+    // Restaurar botón
+    botonEnviar.disabled = false;
+    botonEnviar.textContent = "SOLICITAR COTIZACIÓN";
+
+} else {
+
+                console.error("Error del servidor:", resultado);
+
+                // Detener animación
+                clearInterval(intervaloPuntos);
+
+                // Mostrar errores debajo de cada campo
+                for (const campo in resultado) {
+
+                    const errores = resultado[campo];
+
+                    if (Array.isArray(errores)) {
+
+                        const elementoError = document.getElementById(
+                            "error-" + campo
+                        );
+
+                        const elementoCampo = document.getElementById(
+                            campo === "motivo" ? "servicio" : campo
+                        );
+
+                        if (elementoError) {
+                            elementoError.textContent = errores.join(" ");
+                        }
+
+                        if (elementoCampo) {
+                            elementoCampo.classList.add("campo-error");
+                        }
+                    }
+                }
+
+                // Restaurar botón
+                botonEnviar.disabled = false;
+                botonEnviar.textContent = "SOLICITAR COTIZACIÓN";
+            }
+
+        } catch (error) {
+
+            console.error("Error de conexión:", error);
+
+            // Detener animación
+            clearInterval(intervaloPuntos);
+
+            alert("No se pudo conectar con el servidor.");
+
+            // Restaurar botón
+            botonEnviar.disabled = false;
+            botonEnviar.textContent = "SOLICITAR COTIZACIÓN";
+        }
+
+    });
+
+});
+</script>
+
+
+<script>
+(function () {
+
+    const header = document.querySelector(".header");
+
+    function ajustarEspacioHeader() {
+        if (!header) return;
+
+        const alturaHeader = header.getBoundingClientRect().height;
+
+        document.documentElement.style.setProperty(
+            "--header-height",
+            alturaHeader + "px"
+        );
+    }
+
+    ajustarEspacioHeader();
+
+    window.addEventListener("resize", ajustarEspacioHeader);
+
+    if (window.ResizeObserver) {
+        const observer = new ResizeObserver(ajustarEspacioHeader);
+        observer.observe(header);
+    }
+
+})();
+</script>
+
+</body>
+</html>

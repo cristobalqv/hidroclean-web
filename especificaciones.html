@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Especificaciones Técnicas | HidroClean Chile</title>
+    
+    <style>
+/* 1. DECLARACIÓN DE FUENTES */
+@font-face {
+    font-family: 'Futura-Bold';
+    src: url('Futura-Bold.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Lato-Regular';
+    src: url('Lato-Regular.ttf') format('truetype');
+}
+
+/* 2. RESET Y BASES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img, iframe, video, svg {
+    max-width: 100%;
+    height: auto;
+}
+
+h1, h2, h3 {
+    font-family: 'Futura-Bold', sans-serif;
+}
+
+body, p, a, button, td, th, li {
+    font-family: 'Lato-Regular', sans-serif;
+}
+
+body {
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 3. HEADER Y NAVEGACIÓN */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.top-bar {
+    background-color: #0d3b66;
+    color: #fff;
+    font-size: 0.85rem;
+    padding: 6px 0;
+}
+
+.top-bar-content {
+    text-align: right;
+}
+
+.top-bar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-bar {
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo img {
+    max-height: 50px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #0d3b66;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.nav-menu a.active, .nav-menu a:hover {
+    color: #34a8dd;
+}
+
+/* 4. HERO TÉCNICO */
+.tech-hero {
+    background: linear-gradient(rgba(13, 59, 102, 0.85), rgba(13, 59, 102, 0.85)), url('lavado-1.png') no-repeat center center/cover;
+    padding: 100px 0; /* Aumentamos el respiro vertical */
+    min-height: 380px;  /* Le damos altura mínima para romper el efecto aplanado */
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    text-align: center;
+}
+
+.tech-hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+.tech-hero p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #e0e0e0;
+}
+
+/* 5. SECCIÓN DE EQUIPAMIENTO Y TECNOLOGÍA */
+.specs-section {
+    padding: 60px 0;
+    background-color: #ffffff;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: #0d3b66;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 1rem;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 25px;
+}
+
+.tech-card {
+    background: #f8fbfe;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid rgba(13, 59, 102, 0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(13, 59, 102, 0.12);
+}
+
+.tech-card h3 {
+    color: #0d3b66;
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #34a8dd;
+    padding-bottom: 8px;
+    display: inline-block;
+}
+
+.tech-card ul {
+    list-style: none;
+}
+
+.tech-card li {
+    font-size: 0.95rem;
+    color: #444;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+    line-height: 1.4;
+}
+
+.tech-card li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: #00bfee;
+    font-weight: bold;
+}
+
+/* 6. TABLA COMPARATIVA TÉCNICA */
+.table-section {
+    padding: 60px 0;
+    background-color: #f4f7f9;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.tech-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 600px;
+}
+
+.tech-table th {
+    background-color: #0d3b66;
+    color: #ffffff;
+    padding: 15px 20px;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+}
+
+.tech-table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+.tech-table tr:nth-child(even) {
+    background-color: #f9fbfd;
+}
+
+.tech-table tr:hover {
+    background-color: #f0f7fc;
+}
+
+/* 7. TARJETA GLASSMORPISM DE SEGURIDAD */
+.safety-box {
+    margin-top: 50px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-top: 1px solid rgba(255, 255, 255, 0.9);
+    border-left: 6px solid #fb8500;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 30px -5px rgba(13, 59, 102, 0.15);
+}
+
+.safety-box h3 {
+    color: #0d3b66;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.safety-box p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* BOTONES */
+.btn {
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.35);
+    transform: rotate(30deg);
+    transition: left 0.6s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn:hover::after {
+    left: 140%;
+}
+
+.btn-green {
+    background-color: #fb8500;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(251, 133, 0, 0.3);
+}
+
+.btn-green:hover {
+    background-color: #e07600;
+    box-shadow: 0 8px 20px rgba(251, 133, 0, 0.45);
+}
+
+
+
+
+/* ==========================================
+   FOOTER UNIFICADO (HIDROCLEAN CHILE)
+   ========================================== */
+.footer {
+    background-color: #0d3b66;
+    color: #ffffff;
+    padding: 40px 0 20px 0;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.footer-brand {
+    text-align: left; /* Garantiza alineación a la izquierda en desktop */
+}
+
+.footer-brand h3 {
+    font-family: 'Futura-Bold', sans-serif;
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 5px;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.footer-brand p {
+    font-family: 'Lato-Regular', sans-serif;
+    color: #b0c4de;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-links a {
+    font-family: 'Lato-Regular', sans-serif;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #00bfee;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #b0c4de;
+}
+
+.footer-bottom p {
+    font-family: 'Lato-Regular', sans-serif;
+    margin: 0;
+}
+
+/* Adaptación para pantallas móviles */
+/* NAVEGACIÓN RESPONSIVA UNIFICADA */
+@media (max-width: 768px) {
+    .nav-bar {
+        margin-bottom: 0;
+    }
+    .nav-content {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 10px;
+    }
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 15px;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    .nav-menu li {
+        text-align: center;
+    }
+}
+
+
+
+
+
+
+
+/* WHATSAPP FLOAT */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+.whatsapp-icon {
+    width: 35px;
+    height: 35px;
+    fill: #ffffff;
+}
+
+/* ADAPTABILIDAD MÓVIL */
+@media (max-width: 768px) {
+    .nav-content { flex-direction: column; gap: 15px; }
+    .nav-menu { flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .tech-hero h1 { font-size: 2rem; }
+    .footer-content { flex-direction: column; gap: 20px; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. ENCABEZADO Y NAVEGACIÓN -->
+    <header class="header">
+        <div class="top-bar">
+            <div class="container top-bar-content">
+                <span>Ventas y Cotizaciones: <a href="tel:+56912345678">+56 9 1234 5678</a></span>
+            </div>
+        </div>
+        
+        <nav class="nav-bar">
+            <div class="container nav-content">
+                <a href="index.html" class="logo">
+                    <img src="logo-1.png" alt="HidroClean Chile Logo">
+                </a>
+                <ul class="nav-menu">
+    <li><a href="index.html#inicio">Inicio</a></li>
+    <li><a href="index.html#empresa">Nuestra Empresa</a></li>
+    <li><a href="index.html#servicios">Servicios</a></li>
+    <li><a href="especificaciones.html">Ficha Técnica</a></li>
+    <li><a href="galeria.html">Trabajos Realizados</a></li>
+    <li><a href="index.html#contacto">Contacto</a></li>
+</ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 2. PORTADA TÉCNICA -->
+    <section class="tech-hero">
+        <div class="container">
+            <h1>ESPECIFICACIONES TÉCNICAS</h1>
+            <p>Conoce los estándares de presión, equipamiento y protocolos de seguridad que aplicamos en cada servicio residencial.</p>
+        </div>
+    </section>
+
+    <!-- 3. DETALLES DE EQUIPAMIENTO -->
+    <section class="specs-section">
+        <div class="container">
+            <h2 class="section-title">Equipamiento y Presión Controlada</h2>
+            <p class="section-subtitle">Ajustamos la potencia según el tipo de poro y fragilidad del material.</p>
+
+            <div class="tech-grid">
+                
+                <div class="tech-card">
+                    <h3>Hidrolavadoras Industriales</h3>
+                    <ul>
+                        <li>Presión regulable de 150 a 250 BAR (2.100 a 3.600 PSI).</li>
+                        <li>Caudal continuo de agua para remover suciedad pesada sin abrasión seca.</li>
+                        <li>Motores de alta eficiencia con bajo nivel de emisión sonora para zonas residenciales.</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <h3>Boquillas y Rotabrocas</h3>
+                    <ul>
+                        <li>Boquillas rotativas (efecto fresadora) para musgo e incrustaciones profundas.</li>
+                        <li>Boquillas de abanico a 25° y 40° para limpieza pareja de pisos delicados.</li>
+                        <li>Limpiadores de patio con domo para evitar salpicaduras en muros limpios.</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <h3>Insumos y Biodegradabilidad</h3>
+                    <ul>
+                        <li>Detergentes desengrasantes neutros para manchas de aceite en hormigón.</li>
+                        <li>Tratamientos antimoho no corrosivos aptos para zonas cercanas a jardines.</li>
+                        <li>Insumos libres de químicos residuales dañinos para mascotas.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. TABLA COMPARATIVA DE SUPERFICIES -->
+    <section class="table-section">
+        <div class="container">
+            <h2 class="section-title">Matriz de Trabajo por Superficie</h2>
+            <p class="section-subtitle">Parámetros técnicos aplicados según el material de tu hogar.</p>
+
+            <div class="table-wrapper">
+                <table class="tech-table">
+                    <thead>
+                        <tr>
+                            <th>Superficie</th>
+                            <th>Presión Recomendada</th>
+                            <th>Tipo de Boquilla</th>
+                            <th>Objetivo Principal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Pastelones / Hormigón</strong></td>
+                            <td>180 - 220 BAR</td>
+                            <td>Rotabroca 0° / Abanico 15°</td>
+                            <td>Remoción de hongo negro y moho incrustado.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Adoquines</strong></td>
+                            <td>150 - 180 BAR</td>
+                            <td>Limpiador de Patio con Domo</td>
+                            <td>Limpieza de poro sin barrer la arena de fragüe.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cerámica Exterior / Porcelanato</strong></td>
+                            <td>120 - 150 BAR</td>
+                            <td>Abanico 25° / 40°</td>
+                            <td>Eliminación de sarro, suciedad y suciedad superficial.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Muros / Ladrillo Visto</strong></td>
+                            <td>100 - 140 BAR</td>
+                            <td>Abanico 40° Controlado</td>
+                            <td>Limpieza estética sin desprender mortero ni pintura.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Caja Glassmorphism de Protocolo -->
+            <div class="safety-box">
+                <h3>Protocolo de Protección del Hogar</h3>
+                <p>Antes de iniciar la inyección de agua a presión, nuestro equipo realiza un sellado preventivo de enchufes exteriores, protección de plantas perimetrales con coberturas especiales y verificación de desagües para garantizar un proceso limpio y seguro de principio a fin.</p>
+                <br>
+                <a href="index.html#inicio" class="btn btn-green">SOLICITAR EVALUACIÓN TÉCNICA</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. FOOTER -->
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>HIDROCLEAN CHILE</h3>
+                <p>Especialistas en hidrolavado residencial a alta presión.</p>
+            </div>
+            <ul class="footer-links">
+    <li><a href="index.html#inicio">Inicio</a></li>
+    <li><a href="index.html#empresa">Nuestra Empresa</a></li>
+    <li><a href="index.html#servicios">Servicios</a></li>
+    <li><a href="especificaciones.html">Ficha Técnica</a></li>
+    <li><a href="galeria.html">Trabajos Realizados</a></li>
+    <li><a href="index.html#contacto">Contacto</a></li>
+</ul>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 HidroClean Chile. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/56912345678?text=Hola,%20tengo%20consultas%20t%C3%A9cnicas%20sobre%20el%20servicio" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contacto por WhatsApp">
+        <svg viewBox="0 0 32 32" class="whatsapp-icon">
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 8.138-2.135c2.35 1.282 5.011 1.958 7.862 1.958 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.35c-2.48 0-4.908-0.662-7.037-1.92l-0.505-0.3-5.232 1.372 1.396-5.19-0.33-0.525c-1.385-2.201-2.117-4.757-2.117-7.387 0-7.625 6.202-13.826 13.826-13.826s13.826 6.202 13.826 13.826-6.202 13.826-13.826 13.826zM22.826 19.341c-0.373-0.187-2.206-1.088-2.548-1.212s-0.591-0.187-0.84 0.187c-0.249 0.373-0.964 1.212-1.182 1.461s-0.435 0.28-0.808 0.093c-0.373-0.187-1.576-0.581-3.002-1.853-1.109-0.989-1.858-2.211-2.076-2.584s-0.023-0.575 0.164-0.761c0.168-0.168 0.373-0.435 0.56-0.653s0.249-0.373 0.373-0.622c0.124-0.249 0.062-0.467-0.031-0.653s-0.84-2.023-1.15-2.769c-0.302-0.728-0.609-0.629-0.84-0.641l-0.715-0.012c-0.249 0-0.653 0.093-0.995 0.467s-1.306 1.275-1.306 3.109 1.337 3.606 1.524 3.855c0.187 0.249 2.631 4.017 6.374 5.634 0.89 0.384 1.585 0.614 2.127 0.786 0.894 0.284 1.708 0.244 2.35 0.148 0.716-0.107 2.206-0.902 2.518-1.773s0.311-1.617 0.218-1.773c-0.093-0.156-0.342-0.249-0.715-0.435z"/>
+        </svg>
+    </a>
+
+</body>
+</html>

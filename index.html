@@ -541,6 +541,9 @@ body {
             background-color: #34a8dd;
         }
 
+
+	
+
         /* ==========================================
            7. SECCIÓN CONTACTO
            ========================================== */
@@ -1274,6 +1277,209 @@ body {
 }
 
 
+
+/* ==========================================
+   12. NIVELES DE LIMPIEZA (BLOQUE NUEVO)
+   ========================================== */
+
+.cleaning-levels {
+    margin-top: 60px;
+    width: 100%;
+}
+
+/* --- Encabezado del bloque --- */
+.cleaning-levels-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 35px auto;
+}
+
+.cleaning-levels-header h3 {
+    color: #0d3b66;
+    font-size: clamp(1.4rem, 2vw + 0.9rem, 1.8rem);
+    margin-bottom: 10px;
+    line-height: 1.25;
+}
+
+.cleaning-levels-header p {
+    color: #666666;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* --- Grilla de tarjetas --- */
+.cleaning-levels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 30px;
+    align-items: start;
+}
+
+/* --- Tarjeta --- */
+.cleaning-level-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e6ed;
+    border-top: 4px solid #00bfee;
+    border-radius: 8px;
+    padding: 28px 25px;
+    min-width: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cleaning-level-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(13, 59, 102, 0.12);
+}
+
+.cleaning-level-card-deep {
+    border-top-color: #fb8500;
+}
+
+/* --- Título interno de cada tarjeta --- */
+.cleaning-level-title {
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+}
+
+.cleaning-level-title h4 {
+    color: #0d3b66;
+    font-size: 1.25rem;
+    margin-bottom: 4px;
+    line-height: 1.2;
+    overflow-wrap: break-word;
+}
+
+.cleaning-level-title span {
+    display: block;
+    color: #00bfee;
+    font-size: 0.82rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cleaning-level-card-deep .cleaning-level-title span {
+    color: #fb8500;
+}
+
+/* --- Texto descriptivo --- */
+.cleaning-level-card > p {
+    color: #555555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+/* --- Listado de prestaciones --- */
+.cleaning-level-card ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.cleaning-level-card li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 10px;
+    color: #555555;
+    font-size: 0.92rem;
+    line-height: 1.45;
+    overflow-wrap: break-word;
+}
+
+.cleaning-level-card li:last-child {
+    margin-bottom: 0;
+}
+
+.cleaning-level-card li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #00bfee;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.cleaning-level-card-deep li::before {
+    color: #fb8500;
+}
+
+/* --- Nota sobre manchas persistentes --- */
+.cleaning-note {
+    background-color: #f8fbfe;
+    border: 1px solid #e0e6ed;
+    border-left: 4px solid #fb8500;
+    border-radius: 8px;
+    padding: 25px;
+    margin-top: 30px;
+}
+
+.cleaning-note > strong {
+    display: block;
+    color: #0d3b66;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+}
+
+.cleaning-note p {
+    color: #555555;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.cleaning-note p:last-child {
+    margin-bottom: 0;
+}
+
+.cleaning-note p strong {
+    color: #0d3b66;
+}
+
+/* --- Ajustes móvil (selectores nuevos, no alteran lo existente) --- */
+@media (max-width: 768px) {
+
+    .cleaning-levels {
+        margin-top: 45px;
+    }
+
+    .cleaning-levels-grid {
+        gap: 20px;
+    }
+
+    .cleaning-level-card {
+        padding: 22px 18px;
+    }
+
+    .cleaning-note {
+        padding: 20px 18px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .cleaning-level-card {
+        padding: 18px 15px;
+    }
+
+    .cleaning-level-title h4 {
+        font-size: 1.1rem;
+    }
+
+    .cleaning-level-card li {
+        font-size: 0.88rem;
+        padding-left: 21px;
+    }
+
+    .cleaning-note {
+        padding: 18px 15px;
+    }
+}
+
     </style>
 </head>
 
@@ -1481,6 +1687,96 @@ body {
                 </div>
 
             </div>
+
+	    <!-- NIVELES DE LIMPIEZA -->
+<div class="cleaning-levels">
+
+    <div class="cleaning-levels-header">
+        <h3>¿Qué tipo de limpieza necesita tu superficie?</h3>
+        <p>
+            Ofrecemos dos niveles de servicio según el estado de la superficie
+            y el nivel de suciedad presente.
+        </p>
+    </div>
+
+    <div class="cleaning-levels-grid">
+
+        <!-- LIMPIEZA NORMAL -->
+        <div class="cleaning-level-card">
+
+            <div class="cleaning-level-title">
+                <h4>Limpieza Normal</h4>
+                <span>Mantenimiento y suciedad habitual</span>
+            </div>
+
+            <p>
+                Ideal para superficies con suciedad habitual que requieren
+                una limpieza profesional de mantenimiento.
+            </p>
+
+            <ul>
+                <li>Hidrolavado general de la superficie.</li>
+                <li>Remoción de polvo, tierra y suciedad superficial.</li>
+                <li>Remoción de verdín y moho superficial.</li>
+                <li>Uso de productos de limpieza cuando sean necesarios.</li>
+                <li>Tratamiento localizado de suciedad adherida.</li>
+            </ul>
+
+        </div>
+
+
+        <!-- LIMPIEZA PROFUNDA -->
+        <div class="cleaning-level-card cleaning-level-card-deep">
+
+            <div class="cleaning-level-title">
+                <h4>Limpieza Profunda</h4>
+                <span>Mayor tiempo y tratamiento</span>
+            </div>
+
+            <p>
+                Recomendada para superficies con suciedad fuertemente adherida,
+                acumulaciones o zonas que requieren una intervención más intensiva.
+            </p>
+
+            <ul>
+                <li>Incluye todo lo considerado en la limpieza normal.</li>
+                <li>Mayor tiempo de trabajo sobre la superficie.</li>
+                <li>Tratamiento de suciedad fuertemente adherida.</li>
+                <li>Trabajo sobre costras y acumulaciones difíciles.</li>
+                <li>Aplicación de productos específicos según el tipo de suciedad.</li>
+                <li>Cepillado o trabajo mecánico adicional cuando corresponda.</li>
+                <li>Repetición de tratamientos cuando sea técnicamente razonable.</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <!-- INFORMACIÓN SOBRE MANCHAS -->
+    <div class="cleaning-note">
+
+        <strong>Sobre manchas persistentes</strong>
+
+        <p>
+            El resultado depende del tipo de suciedad, del tiempo que lleve
+            presente y de las características de cada material. Algunas manchas
+            pueden haber penetrado en la superficie o corresponder a oxidación,
+            mineralización, decoloración u otras alteraciones permanentes.
+        </p>
+
+        <p>
+            <strong>
+                Trabajamos buscando la máxima remoción posible sin comprometer
+                la superficie.
+            </strong>
+            Por esta razón, la eliminación total de determinadas manchas no
+            puede garantizarse.
+        </p>
+
+    </div>
+
+</div>
         </div>
     </section>
 
@@ -1537,7 +1833,7 @@ body {
     </div>
 </section>
 
-    <!-- 5. SECCIÓN CONTACTO -->
+
     <!-- 5. SECCIÓN CONTACTO -->
     <section id="contacto" class="contact-section">
         <div class="container">
